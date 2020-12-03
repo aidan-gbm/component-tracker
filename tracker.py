@@ -9,7 +9,8 @@ class Tracker():
     def __init__(self):
         self.components = {
             'Ryzen 5 3400G': 'https://www.newegg.com/amd-ryzen-5-3400g/p/N82E16819113570',
-            'Ryzen 5 2600': 'https://www.newegg.com/amd-ryzen-5-2600/p/N82E16819113496'
+            'Ryzen 5 2600': 'https://www.newegg.com/amd-ryzen-5-2600/p/N82E16819113496',
+            'Ryzen 5 2600X': 'https://www.newegg.com/amd-ryzen-5-2600x/p/N82E16819113497'
         }
     
     def getInfo(self, name, url):
@@ -21,7 +22,7 @@ class Tracker():
 
     def update(self):
         results = {}
-        date = datetime.datetime.now().strftime('%d-%m-%y %H:%M:%S')
+        date = datetime.datetime.now().strftime('%y-%m-%d %H:%M:%S')
         for name, url in self.components.items():
             (vendor, price) = self.getInfo(name, url)
             results[name] = {'date': date, 'vendor': vendor, 'price': price}

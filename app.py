@@ -34,7 +34,7 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
     dcc.Graph(id='live-graph'),
     dcc.Interval(
         id='interval-component',
-        interval=30*1000,
+        interval=15*1000,
         n_intervals=0
     )
 ])
@@ -44,7 +44,7 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
     Input('interval-component', 'n_intervals')
 )
 def update_time(n):
-    date = datetime.datetime.now().strftime('%d-%m-%y %H:%M:%S')
+    date = datetime.datetime.now().strftime('%d %b %Y %H:%M:%S')
     return html.P('Last updated: ' + date)
 
 @app.callback(
@@ -80,4 +80,4 @@ def update_graph(n):
     )
     return fig
 
-app.run_server(debug=False)
+app.run_server(debug=True)
